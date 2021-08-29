@@ -20,6 +20,7 @@
         <activity android:name=".UI.Home"/>
         <activity android:name=".UI.AdminLogin"/>
         <activity android:name=".UI.DocRegister"/>
+        <activity android:name=".UI.DoctorsList"/>
     </application>
 
 </manifest>

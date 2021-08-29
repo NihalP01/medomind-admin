@@ -4,9 +4,8 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.ebarim.admin.databinding.ActivityHomeBinding
-import com.ebarim.admin.databinding.ActivityMainBinding
 
-class Home: AppCompatActivity() {
+class Home : AppCompatActivity() {
     private lateinit var binding: ActivityHomeBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -15,6 +14,10 @@ class Home: AppCompatActivity() {
 
         binding.docRegister.setOnClickListener {
             startActivity(Intent(this, DocRegister::class.java))
+        }
+
+        binding.showDoctor.setOnClickListener {
+            startActivity(Intent(this, DoctorsList::class.java))
         }
 
         val view = binding.root

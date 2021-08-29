@@ -1,5 +1,6 @@
 package com.ebarim.admin.Network.API
 
+import com.ebarim.admin.Network.Data.Common
 import com.ebarim.admin.Network.Data.LoginData
 import com.ebarim.admin.Network.Data.ROLE.RoleDataClass
 import okhttp3.OkHttpClient
@@ -21,9 +22,19 @@ interface ApiClient {
         @Header("Authorization") BearerToken: String
     ): Response<RoleDataClass>
 
+    @FormUrlEncoded
+    @POST("doctor/register")
+    suspend fun register(
+        @Header("Authorization") BearerToken: String,
+        @Field("name") name: String,
+        @Field("phone") phone: String,
+        @Field("email") email: String,
+        @Field("password") password: String,
+    ): Response<Common>
+
     object ApiAdapter {
         val apiClient: ApiClient = Retrofit.Builder()
-            .baseUrl("https://293a-2409-4065-d1e-65b6-fbf9-c50f-5dc2-60b6.ngrok.io/api/v1/")
+            .baseUrl("https://doc-book.herokuapp.com/api/v1/")
             .addConverterFactory(GsonConverterFactory.create())
             .client(OkHttpClient())
             .build()

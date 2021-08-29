@@ -7,7 +7,10 @@ import android.util.Patterns
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.ebarim.admin.Network.API.ApiClient
+import com.ebarim.admin.Utils.Utils.Companion.setAuthType
 import com.ebarim.admin.Utils.Utils.Companion.setLogged
+import com.ebarim.admin.Utils.Utils.Companion.setName
+import com.ebarim.admin.Utils.Utils.Companion.setToken
 import com.ebarim.admin.Utils.Utils.Companion.toast
 import com.ebarim.admin.databinding.ActivityAdminLoginBinding
 import kotlinx.coroutines.Dispatchers
@@ -74,19 +77,22 @@ class AdminLogin : AppCompatActivity() {
                 val response = ApiClient.ApiAdapter.apiClient.role("$type $token")
                 if (response.isSuccessful && response.body() != null) {
                     val role = response.body()!!.data.user.role
-                    Log.d("myTag", role)
+                    val name = response.body()!!.data.user.name
                     if (role == "admin") {
                         setLogged(true)
+                        setAuthType(type)
+                        setToken(token)
+                        setName(name)
                         startActivity(Intent(this@AdminLogin, Home::class.java))
                         finish()
                     } else {
-                        toast("dsjnuvn")
+                        toast("This is not an admin account. Please check your login info")
                     }
                 } else {
                     Log.d("myTag", response.message().toString())
                 }
             } catch (e: Exception) {
-                toast("This is not an admin account. Please check your login info")
+                toast("Something went wrong, try again later.")
             }
         }
     }

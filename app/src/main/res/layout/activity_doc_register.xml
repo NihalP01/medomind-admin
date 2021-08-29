@@ -167,17 +167,17 @@
                 android:layout_height="wrap_content"
                 android:indeterminate="true"
                 android:visibility="invisible"
-                app:layout_constraintBottom_toBottomOf="@+id/btnUserSignup"
+                app:layout_constraintBottom_toBottomOf="@+id/btnDocRegister"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/btnUserSignup" />
+                app:layout_constraintTop_toTopOf="@+id/btnDocRegister" />
 
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnUserSignup"
+                android:id="@+id/btnDocRegister"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/material_blue_400"
-                android:text="Create"
+                android:text="Register"
                 android:textAllCaps="false"
                 app:cornerRadius="18dp"
                 app:layout_constraintBottom_toBottomOf="parent"
