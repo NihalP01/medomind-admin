@@ -91,7 +91,7 @@ class Utils {
         }
 
         fun Context.getName(userName: String): String {
-            val pref = Companion.getSharedPreferences(this)
+            val pref = getSharedPreferences(this)
             if (!pref.contains(userName)) throw Exception("Username not found")
             return pref.getString(userName, "").toString()
         }

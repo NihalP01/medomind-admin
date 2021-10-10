@@ -34,7 +34,7 @@ interface ApiClient {
 
     object ApiAdapter {
         val apiClient: ApiClient = Retrofit.Builder()
-            .baseUrl("https://doc-book.herokuapp.com/api/v1/")
+            .baseUrl("http://doc-book.techmess.in/api/v1/")
             .addConverterFactory(GsonConverterFactory.create())
             .client(OkHttpClient())
             .build()
